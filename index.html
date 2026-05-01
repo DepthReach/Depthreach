@@ -5,27 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DepthReach</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
 
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
-  background:#0A192F;
+  font-family:Poppins,sans-serif;
+  background:#0a192f;
   color:white;
-  scroll-behavior:smooth;
 }
 
 /* NAV */
 nav{
   display:flex;
   justify-content:space-between;
-  padding:20px 40px;
-  background:rgba(0,0,0,0.5);
-  backdrop-filter:blur(10px);
+  padding:20px 60px;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(12px);
   position:sticky;
   top:0;
+  z-index:1000;
 }
+
+nav h2{font-weight:700;}
+nav a{color:white;margin-left:25px;text-decoration:none;font-size:14px;}
 
 /* HERO */
 .hero{
@@ -35,94 +40,83 @@ nav{
   justify-content:center;
   align-items:center;
   text-align:center;
-  background:linear-gradient(135deg,#0A192F,#1E3A8A);
+  background:linear-gradient(135deg,#0a192f,#1e3a8a);
 }
 
-.hero h1{font-size:48px;margin-bottom:15px;}
-.hero p{opacity:0.8;margin-bottom:20px;}
+.hero h1{
+  font-size:52px;
+  max-width:800px;
+}
+
+.hero p{
+  margin:20px 0;
+  opacity:0.8;
+}
 
 .btn{
-  padding:12px 25px;
+  padding:14px 28px;
   border-radius:12px;
   margin:10px;
   cursor:pointer;
   transition:0.3s;
+  font-weight:600;
 }
 
-.btn-primary{background:white;color:black;}
-.btn-outline{border:1px solid white;}
+.btn-primary{
+  background:white;
+  color:black;
+}
 
-.btn:hover{transform:scale(1.05);}
+.btn-outline{
+  border:1px solid white;
+}
 
-/* SECTIONS */
-section{padding:80px 40px;}
+.btn:hover{
+  transform:scale(1.05);
+}
 
-.section-title{text-align:center;margin-bottom:40px;font-size:32px;}
+/* SECTION */
+section{
+  padding:90px 60px;
+}
+
+.section-title{
+  text-align:center;
+  font-size:34px;
+  margin-bottom:50px;
+}
 
 /* CARDS */
 .cards{
   display:flex;
   flex-wrap:wrap;
-  gap:20px;
   justify-content:center;
+  gap:25px;
 }
 
 .card{
-  background:#112240;
-  padding:25px;
-  border-radius:15px;
-  width:260px;
+  width:280px;
+  padding:30px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#112240,#1e3a8a);
   cursor:pointer;
   transition:0.3s;
 }
 
 .card:hover{
   transform:translateY(-10px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
 
-/* LIGHT */
+/* LIGHT SECTION */
 .light{
-  background:white;
+  background:#f9fafb;
   color:black;
 }
 
-/* POPUP */
-#popup{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.8);
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-
-.popup-box{
-  background:white;
-  color:black;
-  padding:30px;
-  border-radius:15px;
-  max-width:600px;
-  width:90%;
-  position:relative;
-  animation:fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:scale(0.9);}
-  to{opacity:1; transform:scale(1);}
-}
-
-.close{
-  position:absolute;
-  right:15px;
-  top:10px;
-  cursor:pointer;
-  font-size:20px;
+/* TEAM */
+.team .card{
+  text-align:center;
 }
 
 /* FORM */
@@ -136,10 +130,44 @@ input,textarea{
 
 /* FOOTER */
 footer{
-  text-align:center;
-  padding:30px;
   background:#020c1b;
+  text-align:center;
+  padding:40px;
 }
+
+/* POPUP */
+#popup{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(6px);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.popup-box{
+  background:white;
+  color:black;
+  padding:35px;
+  border-radius:20px;
+  max-width:500px;
+  width:90%;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  top:10px;
+  right:15px;
+  cursor:pointer;
+  font-size:20px;
+}
+
 </style>
 </head>
 
@@ -156,8 +184,9 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
-  <h1>Build Premium Websites That Convert</h1>
-  <p>We don’t just build websites — we build systems that generate leads</p>
+  <h1>We Build Premium Websites That Actually Convert</h1>
+  <p>Modern design + business strategy = real results</p>
+
   <div>
     <button class="btn btn-primary">Try For Free</button>
     <button class="btn btn-outline" onclick="scrollToContact()">Contact Us</button>
@@ -169,13 +198,13 @@ footer{
   <h2 class="section-title">Trusted by Growing Brands</h2>
   <div class="cards">
     <div class="card" onclick="openPopup('kyron')">Kyron Clothing</div>
-    <div class="card" onclick="openPopup('export')">Dewan’s Altiora Exim</div>
+    <div class="card" onclick="openPopup('export')">Altiora Exim</div>
   </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="light">
-  <h2 class="section-title">Our Services</h2>
+  <h2 class="section-title">Services</h2>
   <div class="cards">
     <div class="card" onclick="openPopup('web')">Website Development</div>
     <div class="card" onclick="openPopup('seo')">SEO & Growth</div>
@@ -185,9 +214,9 @@ footer{
 
 <!-- DEMO -->
 <section>
-  <h2 class="section-title">E-commerce Demo</h2>
+  <h2 class="section-title">Demo Experience</h2>
   <div class="cards">
-    <div class="card" onclick="openPopup('ecommerce')">View Demo Store</div>
+    <div class="card" onclick="openPopup('ecommerce')">View E-commerce Demo</div>
   </div>
 </section>
 
@@ -213,7 +242,7 @@ footer{
 <!-- TEAM -->
 <section>
   <h2 class="section-title">Our Team</h2>
-  <div class="cards">
+  <div class="cards team">
     <div class="card">
       <h3>Shivanshu</h3>
       <p>Head of Management</p>
@@ -225,16 +254,15 @@ footer{
 
 <!-- CONTACT -->
 <section id="contact">
-  <h2 class="section-title">Contact Us</h2>
+  <h2 class="section-title">Contact</h2>
 
   <form action="https://formspree.io/f/xeenqekz" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message"></textarea>
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message"></textarea>
 
-    <button class="btn btn-primary" type="submit">Send Message</button>
+    <button class="btn btn-primary">Send</button>
   </form>
-
 </section>
 
 <footer>
@@ -250,39 +278,34 @@ footer{
 </div>
 
 <script>
+
 function scrollToContact(){
   document.getElementById("contact").scrollIntoView();
 }
 
 function openPopup(type){
-  let content = document.getElementById("popupContent");
-
-  if(type==="ecommerce"){
-    content.innerHTML = "<h2>E-commerce Demo</h2><p>Modern UI with cart & checkout system</p>";
-  }
+  let c = document.getElementById("popupContent");
 
   if(type==="web"){
-    content.innerHTML = "<h2>Website Development</h2><p>Premium modern websites for businesses</p>";
+    c.innerHTML="<h2>Website Development</h2><p>Modern premium websites for businesses.</p>";
   }
-
   if(type==="seo"){
-    content.innerHTML = "<h2>SEO Growth</h2><p>Rank your business and get leads</p>";
+    c.innerHTML="<h2>SEO</h2><p>Rank your business & grow traffic.</p>";
   }
-
   if(type==="lead"){
-    content.innerHTML = "<h2>Lead Generation</h2><p>Get high-quality clients consistently</p>";
+    c.innerHTML="<h2>Lead Generation</h2><p>Get consistent clients.</p>";
   }
-
+  if(type==="ecommerce"){
+    c.innerHTML="<h2>E-commerce</h2><p>Full store with checkout system.</p>";
+  }
   if(type==="pricing"){
-    content.innerHTML = "<h2>Pricing Details</h2><p>Contact us for custom plans</p>";
+    c.innerHTML="<h2>Pricing</h2><p>Contact for custom pricing.</p>";
   }
-
   if(type==="kyron"){
-    content.innerHTML = "<h2>Kyron</h2><p>Clothing startup collaboration</p>";
+    c.innerHTML="<h2>Kyron</h2><p>Clothing startup collaboration.</p>";
   }
-
   if(type==="export"){
-    content.innerHTML = "<h2>Altiora Exim</h2><p>Global export-import solutions</p>";
+    c.innerHTML="<h2>Altiora Exim</h2><p>Export-import business solutions.</p>";
   }
 
   document.getElementById("popup").style.display="flex";
@@ -291,6 +314,7 @@ function openPopup(type){
 function closePopup(){
   document.getElementById("popup").style.display="none";
 }
+
 </script>
 
 </body>
